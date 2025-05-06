@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekolah Agama Rakyat As-Solatiah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#1B4D3E',
+                        'light-green': '#2A7857',
+                        'primary-purple': '#4A1B4D',
+                        'light-purple': '#6B2A78',
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-montserrat">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-primary-green to-primary-purple text-white py-8 px-4">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-center">Sekolah Agama Rakyat As-Solatiah</h1>
+            <p class="text-center mt-3 text-lg opacity-90">Sistem Pengurusan Sekolah</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center space-x-6 py-4">
+                <button class="nav-btn" onclick="showSection('staff')">
+                    <i class="fas fa-users mr-2"></i>Guru & Staff
+                </button>
+                <button class="nav-btn" onclick="showSection('kelas')">
+                    <i class="fas fa-chalkboard-teacher mr-2"></i>Kelas
+                </button>
+                <button class="nav-btn" onclick="showSection('subjects')">
+                    <i class="fas fa-book mr-2"></i>Mata Pelajaran
+                </button>
+                <button class="nav-btn" onclick="showSection('calendar')">
+                    <i class="fas fa-calendar-alt mr-2"></i>Takwim
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Staff Section -->
+        <section id="staffSection" class="section-content">
+            <h2 class="section-title">Senarai Guru & Staff</h2>
+            <div class="grid md:grid-cols-2 gap-4 mt-6" id="staffList"></div>
+        </section>
+
+        <!-- Kelas Section -->
+        <section id="kelasSection" class="section-content hidden">
+            <h2 class="section-title">Senarai Kelas</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6" id="kelasList"></div>
+        </section>
+
+        <!-- Subjects Section -->
+        <section id="subjectsSection" class="section-content hidden">
+            <h2 class="section-title">Mata Pelajaran</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6" id="subjectsList"></div>
+        </section>
+
+        <!-- Calendar Section -->
+        <section id="calendarSection" class="section-content hidden">
+            <h2 class="section-title">Takwim Akademik & Kokurikulum</h2>
+            <div class="mt-6">
+                <div class="flex justify-between items-center mb-4">
+                    <button id="prevMonth" class="calendar-nav-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h3 id="currentMonth" class="text-xl font-semibold"></h3>
+                    <button id="nextMonth" class="calendar-nav-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div id="calendar" class="bg-white rounded-lg shadow"></div>
+            </div>
+        </section>
+    </main>
+
+    <style>
+        .nav-btn {
+            @apply px-6 py-3 text-primary-green hover:bg-primary-green hover:text-white rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2 font-medium;
+        }
+        .section-title {
+            @apply text-3xl font-bold text-primary-purple mb-6 pb-3 border-b-2 border-light-purple text-center;
+        }
+        .calendar-nav-btn {
+            @apply p-3 text-primary-green hover:bg-primary-green hover:text-white rounded-full transition-colors duration-200;
+        }
+        .staff-card {
+            @apply bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-200 border border-gray-100;
+        }
+        .kelas-card {
+            @apply bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-all duration-200 border border-gray-100 transform hover:-translate-y-1;
+        }
+        .subject-card {
+            @apply bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition-all duration-200 border border-gray-100;
+        }
+    </style>
+
+    <script src="script.js"></script>
+</body>
+</html>
